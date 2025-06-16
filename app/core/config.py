@@ -4,18 +4,22 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
 
-    # API Keys - will be added later
-    # OPENAI_API_KEY: str = "your_openai_key"
+    # OpenAI Settings
+    OPENAI_API_KEY: str = "" # Will be loaded from .env
     FIREBASE_CREDENTIALS_PATH: str = "" # Default to empty string
 
-    # Database - will be added later
-    # QDRANT_URL: str = "localhost:6333"
-    # QDRANT_API_KEY: str | None = None
+    # Qdrant Settings
+    QDRANT_URL: str = "http://localhost:6333"
+    QDRANT_API_KEY: str | None = None
+    QDRANT_COLLECTION_NAME: str = "rag_documents"
 
-    # App Settings - will be added later
-    # MAX_FILE_SIZE: int = 50 * 1024 * 1024  # 50MB
-    # CHUNK_SIZE: int = 1000
-    # CHUNK_OVERLAP: int = 200
+    # Relational Database Settings
+    DATABASE_URL: str = "postgresql+asyncpg://user:password@host:port/dbname" # Placeholder
+
+    # Text Processing Settings
+    CHUNK_SIZE: int = 1000
+    CHUNK_OVERLAP: int = 200
+    # MAX_FILE_SIZE: int = 50 * 1024 * 1024  # 50MB # Still commented out as per original, can be activated later
 
     class Config:
         env_file = ".env"
