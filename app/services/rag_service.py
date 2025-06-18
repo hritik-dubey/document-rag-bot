@@ -262,3 +262,6 @@ async def stream_rag_pipeline(user_id: str, query: str, doc_id: str | None = Non
     finally:
         logger.info(f"Finished streaming RAG response for user '{user_id}', query: '{query}'")
         yield {"type": "end"} # Signal end of stream
+
+
+# need to implement
